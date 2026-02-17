@@ -3,47 +3,64 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Zubayd Hossain — Android Developer (Java) | Portfolio</title>
-  <meta name="description" content="Premium one-page portfolio of Zubayd Hossain — Android (Java) Developer. Firebase, SQLite, UI/UX, IoT integration, POS, School Management Systems." />
+  <meta name="description" content="Android (Java) Developer Portfolio — POS, Inventory, School Management, NFC/QR Attendance, Firebase & SQLite." />
   <meta name="theme-color" content="#0b1220" />
+  <title>Zubayd Hossain — Android (Java) Developer</title>
+
+  <!-- Open Graph (for sharing) -->
+  <meta property="og:title" content="Zubayd Hossain — Android (Java) Developer" />
+  <meta property="og:description" content="POS • Inventory • School Management • NFC/QR Attendance • Firebase • SQLite" />
+  <meta property="og:type" content="website" />
+
   <style>
     :root{
-      --bg:#070b14;
-      --card:#0b1220;
-      --card2:#0a1020;
-      --txt:#eaf0ff;
-      --muted:#a9b4d6;
-      --line:rgba(255,255,255,.08);
-      --glow1:#7c3aed; /* violet */
-      --glow2:#22c55e; /* green */
-      --glow3:#06b6d4; /* cyan */
-      --shadow: 0 20px 60px rgba(0,0,0,.55);
-      --radius: 22px;
-      --radius2: 16px;
+      --bg0:#070B14;
+      --bg1:#0b1220;
+      --card:rgba(255,255,255,.06);
+      --card2:rgba(255,255,255,.085);
+      --border:rgba(255,255,255,.12);
+      --text:#EAF0FF;
+      --muted:rgba(234,240,255,.75);
+      --muted2:rgba(234,240,255,.55);
+      --brand:#7C5CFF;
+      --brand2:#33D6FF;
+      --good:#22c55e;
+      --shadow: 0 18px 55px rgba(0,0,0,.55);
+      --shadow2: 0 10px 30px rgba(0,0,0,.35);
+      --r: 22px;
+      --r2: 16px;
       --max: 1120px;
-      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-      --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
     }
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
     body{
       margin:0;
-      font-family:var(--sans);
-      color:var(--txt);
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Noto Sans Bengali", "Noto Sans", "Apple Color Emoji","Segoe UI Emoji";
+      color:var(--text);
       background:
-        radial-gradient(1200px 600px at 12% -10%, rgba(124,58,237,.35), transparent 60%),
-        radial-gradient(900px 520px at 90% 0%, rgba(34,197,94,.22), transparent 55%),
-        radial-gradient(800px 520px at 65% 80%, rgba(6,182,212,.18), transparent 55%),
-        linear-gradient(180deg, var(--bg), #04050a 70%);
+        radial-gradient(900px 600px at 15% 12%, rgba(124,92,255,.24), transparent 60%),
+        radial-gradient(900px 600px at 85% 15%, rgba(51,214,255,.18), transparent 55%),
+        radial-gradient(900px 800px at 50% 85%, rgba(124,92,255,.12), transparent 60%),
+        linear-gradient(180deg, var(--bg0), var(--bg1));
       overflow-x:hidden;
     }
-    a{color:inherit;text-decoration:none}
-    .wrap{max-width:var(--max); margin:0 auto; padding:0 18px}
+
+    /* Subtle grain */
+    body::before{
+      content:"";
+      position:fixed; inset:0;
+      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)' opacity='.25'/%3E%3C/svg%3E");
+      opacity:.06; pointer-events:none;
+      mix-blend-mode:overlay;
+    }
+
+    a{color:inherit; text-decoration:none}
+    .container{max-width:var(--max); margin:0 auto; padding:0 20px}
     .topbar{
       position:sticky; top:0; z-index:50;
-      backdrop-filter: blur(12px);
-      background: linear-gradient(180deg, rgba(7,11,20,.78), rgba(7,11,20,.35));
-      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(14px);
+      background: linear-gradient(180deg, rgba(7,11,20,.78), rgba(7,11,20,.45));
+      border-bottom:1px solid rgba(255,255,255,.08);
     }
     .nav{
       display:flex; align-items:center; justify-content:space-between;
@@ -54,956 +71,737 @@
       display:flex; align-items:center; gap:10px;
       font-weight:800; letter-spacing:.2px;
     }
-    .dot{
-      width:12px;height:12px;border-radius:999px;
-      background: conic-gradient(from 180deg, var(--glow1), var(--glow2), var(--glow3), var(--glow1));
-      box-shadow: 0 0 26px rgba(124,58,237,.6);
+    .logo{
+      width:34px; height:34px; border-radius:12px;
+      background: linear-gradient(135deg, var(--brand), var(--brand2));
+      box-shadow: 0 10px 25px rgba(124,92,255,.25);
+      position:relative;
+      overflow:hidden;
     }
-    .navlinks{display:flex; gap:18px; align-items:center; flex-wrap:wrap}
-    .navlinks a{
-      color:var(--muted);
-      font-weight:600;
-      font-size:14px;
-      padding:8px 10px;
-      border-radius:12px;
-      border:1px solid transparent;
-      transition:.18s ease;
+    .logo::after{
+      content:"";
+      position:absolute; inset:-40%;
+      background: radial-gradient(circle at 30% 30%, rgba(255,255,255,.55), transparent 45%);
+      transform: rotate(20deg);
     }
-    .navlinks a:hover{
-      color:var(--txt);
-      border-color: var(--line);
-      background: rgba(255,255,255,.03);
+
+    .links{display:flex; align-items:center; gap:16px; flex-wrap:wrap}
+    .links a{
+      font-size:14px; color:var(--muted);
+      padding:8px 10px; border-radius:12px;
+      transition: .22s ease;
     }
-    .cta{
-      display:flex; gap:10px; align-items:center; flex-wrap:wrap;
+    .links a:hover{
+      color:var(--text);
+      background: rgba(255,255,255,.06);
     }
+
     .btn{
-      display:inline-flex; align-items:center; justify-content:center;
-      gap:10px;
-      padding:10px 14px;
-      border-radius:14px;
-      border:1px solid var(--line);
-      background: rgba(255,255,255,.03);
-      color:var(--txt);
+      display:inline-flex; align-items:center; justify-content:center; gap:10px;
+      padding:12px 14px;
+      border-radius:16px;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.06);
+      box-shadow: var(--shadow2);
+      transition: transform .18s ease, background .18s ease, border .18s ease;
       font-weight:700;
       font-size:14px;
-      transition:.18s ease;
-      user-select:none;
       cursor:pointer;
+      user-select:none;
     }
-    .btn:hover{transform: translateY(-1px); border-color: rgba(255,255,255,.18)}
+    .btn:hover{transform: translateY(-1px); background: rgba(255,255,255,.085); border-color: rgba(255,255,255,.18)}
     .btn.primary{
       border:none;
-      background: linear-gradient(135deg, rgba(124,58,237,.95), rgba(6,182,212,.8));
-      box-shadow: 0 18px 45px rgba(124,58,237,.25);
+      background: linear-gradient(135deg, rgba(124,92,255,.95), rgba(51,214,255,.75));
+      box-shadow: 0 20px 50px rgba(124,92,255,.22);
     }
-    .btn.primary:hover{box-shadow:0 22px 60px rgba(124,58,237,.32)}
-    .btn .ic{font-family:var(--mono); opacity:.9; font-weight:900}
-    .grid{
-      display:grid; gap:18px;
+    .btn.primary:hover{filter:saturate(1.1) brightness(1.02)}
+    .btn.ghost{
+      background: transparent;
+      border:1px solid rgba(255,255,255,.14);
+      box-shadow:none;
     }
 
-    /* HERO */
+    /* Hero */
     .hero{
-      padding:58px 0 18px;
-    }
-    .heroGrid{
-      display:grid;
-      grid-template-columns: 1.3fr .7fr;
-      gap:18px;
-      align-items:stretch;
-    }
-    @media (max-width: 940px){
-      .heroGrid{grid-template-columns:1fr}
-    }
-    .card{
-      background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.015));
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
+      padding:56px 0 26px;
       position:relative;
-      overflow:hidden;
     }
-    .card::before{
-      content:"";
-      position:absolute; inset:-2px;
-      background:
-        radial-gradient(600px 240px at 20% 0%, rgba(124,58,237,.22), transparent 60%),
-        radial-gradient(520px 240px at 80% 10%, rgba(34,197,94,.16), transparent 55%),
-        radial-gradient(520px 260px at 60% 90%, rgba(6,182,212,.12), transparent 55%);
-      opacity:.9;
-      pointer-events:none;
+    .grid{
+      display:grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap:28px;
+      align-items:start;
     }
-    .card > *{position:relative}
-    .heroMain{padding:26px}
-    .kicker{
-      display:inline-flex;
-      gap:10px; align-items:center;
-      color:var(--muted);
-      font-weight:700;
-      font-size:13px;
-      letter-spacing:.5px;
-      text-transform:uppercase;
+    @media (max-width: 980px){
+      .grid{grid-template-columns:1fr; gap:18px}
     }
-    .pill{
-      display:inline-flex;
-      gap:8px; align-items:center;
-      padding:7px 10px;
+    .badge{
+      display:inline-flex; gap:10px; align-items:center;
+      padding:8px 12px;
       border-radius:999px;
-      border:1px solid var(--line);
-      background: rgba(0,0,0,.18);
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.05);
+      color:var(--muted);
+      font-size:13px;
+      margin-bottom:14px;
+    }
+    .dot{
+      width:10px; height:10px; border-radius:50%;
+      background: var(--good);
+      box-shadow: 0 0 0 6px rgba(34,197,94,.16);
     }
     h1{
-      margin:14px 0 10px;
-      font-size:44px;
-      line-height:1.06;
+      margin:0;
+      font-size: clamp(34px, 4.4vw, 56px);
+      line-height:1.05;
       letter-spacing:-.6px;
     }
-    @media (max-width: 520px){
-      h1{font-size:34px}
+    .grad{
+      background: linear-gradient(135deg, #ffffff 20%, rgba(255,255,255,.65) 60%, rgba(51,214,255,.9) 100%);
+      -webkit-background-clip:text;
+      background-clip:text;
+      color:transparent;
     }
-    .lead{
-      margin:0;
+    .sub{
+      margin-top:14px;
       color:var(--muted);
       font-size:16px;
-      line-height:1.7;
-      max-width: 60ch;
+      line-height:1.6;
+      max-width: 68ch;
     }
-    .heroActions{
+    .cta{
+      display:flex; gap:12px; flex-wrap:wrap;
       margin-top:18px;
-      display:flex; gap:10px; flex-wrap:wrap; align-items:center;
     }
-    .metaRow{
-      margin-top:18px;
+    .quick{
       display:flex; flex-wrap:wrap; gap:10px;
-    }
-    .meta{
-      display:flex; gap:10px; align-items:flex-start;
-      padding:12px 12px;
-      border-radius: var(--radius2);
-      border:1px solid var(--line);
-      background: rgba(0,0,0,.16);
-      min-width: 190px;
-      flex: 1 1 auto;
-    }
-    .meta b{display:block; font-size:14px}
-    .meta span{display:block; color:var(--muted); font-size:13px; margin-top:4px; line-height:1.35}
-    .meta .tag{
-      width:34px;height:34px;border-radius:12px;
-      display:grid; place-items:center;
-      background: rgba(255,255,255,.04);
-      border:1px solid var(--line);
-      font-family:var(--mono);
-      font-weight:900;
-      color: rgba(255,255,255,.85);
-    }
-    .heroSide{
-      padding:22px;
-      display:flex;
-      flex-direction:column;
-      gap:12px;
-    }
-    .avatar{
-      display:flex; align-items:center; justify-content:space-between; gap:12px;
-      padding:16px;
-      border-radius: var(--radius);
-      border:1px solid var(--line);
-      background: rgba(0,0,0,.16);
-    }
-    .pfp{
-      width:54px;height:54px;border-radius:18px;
-      background: linear-gradient(135deg, rgba(124,58,237,.8), rgba(34,197,94,.45), rgba(6,182,212,.6));
-      box-shadow: 0 20px 60px rgba(6,182,212,.12);
-      border:1px solid rgba(255,255,255,.10);
-      position:relative;
-      overflow:hidden;
-    }
-    .pfp::after{
-      content:"";
-      position:absolute; inset:-20px;
-      background: radial-gradient(80px 60px at 40% 30%, rgba(255,255,255,.35), transparent 60%);
-      transform: rotate(18deg);
-    }
-    .avatar .who b{display:block; font-size:16px; letter-spacing:.1px}
-    .avatar .who span{display:block; margin-top:4px; color:var(--muted); font-size:13px}
-    .mini{
-      display:grid; grid-template-columns:1fr 1fr; gap:10px;
-    }
-    .mini .box{
-      padding:12px;
-      border-radius: var(--radius2);
-      border:1px solid var(--line);
-      background: rgba(255,255,255,.02);
-    }
-    .mini .box b{display:block; font-size:13px}
-    .mini .box span{display:block; color:var(--muted); font-size:13px; margin-top:6px}
-    .stack{
-      padding:14px;
-      border-radius: var(--radius);
-      border:1px solid var(--line);
-      background: rgba(0,0,0,.14);
-    }
-    .stack h3{
-      margin:0 0 10px;
-      font-size:14px;
-      letter-spacing:.2px;
-    }
-    .chips{
-      display:flex; flex-wrap:wrap; gap:8px;
+      margin-top:18px;
     }
     .chip{
-      font-size:12px;
-      color:rgba(255,255,255,.9);
-      padding:8px 10px;
+      display:inline-flex; align-items:center; gap:8px;
+      padding:9px 12px;
       border-radius:999px;
-      border:1px solid var(--line);
-      background: rgba(255,255,255,.03);
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.05);
+      color: rgba(234,240,255,.86);
+      font-size:13px;
+      transition: .2s ease;
     }
+    .chip:hover{transform: translateY(-1px); background: rgba(255,255,255,.075)}
+    .chip svg{opacity:.9}
 
-    /* SECTIONS */
-    section{padding:20px 0}
+    /* Right card */
+    .card{
+      background: linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.05));
+      border:1px solid rgba(255,255,255,.12);
+      border-radius: var(--r);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+    }
+    .cardHeader{
+      padding:18px 18px 14px;
+      border-bottom:1px solid rgba(255,255,255,.09);
+      display:flex; align-items:center; justify-content:space-between;
+      gap:12px;
+    }
+    .titleSm{font-weight:800; letter-spacing:.2px}
+    .muted{color:var(--muted2); font-size:13px}
+    .cardBody{padding:16px 18px 18px}
+    .statGrid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:12px;
+    }
+    .stat{
+      border:1px solid rgba(255,255,255,.11);
+      background: rgba(255,255,255,.045);
+      border-radius: 18px;
+      padding:12px;
+    }
+    .stat b{display:block; font-size:18px}
+    .stat span{display:block; margin-top:4px; font-size:13px; color:var(--muted)}
+    .line{
+      margin:14px 0;
+      height:1px;
+      background: rgba(255,255,255,.08);
+    }
+    .list{
+      display:grid;
+      gap:10px;
+    }
+    .li{
+      display:flex; gap:10px; align-items:flex-start;
+      padding:10px 12px;
+      border-radius: 16px;
+      border:1px solid rgba(255,255,255,.11);
+      background: rgba(255,255,255,.04);
+    }
+    .li svg{flex:0 0 auto; margin-top:2px}
+    .li div{font-size:13.5px; color:rgba(234,240,255,.86); line-height:1.45}
+    .li div small{display:block; color:var(--muted2); margin-top:2px}
+
+    /* Sections */
+    section{padding:34px 0}
     .sectionTitle{
-      display:flex; align-items:flex-end; justify-content:space-between; gap:12px; flex-wrap:wrap;
-      margin:18px 0 10px;
+      display:flex; align-items:flex-end; justify-content:space-between; gap:14px; flex-wrap:wrap;
+      margin-bottom:14px;
     }
     .sectionTitle h2{
       margin:0;
-      font-size:22px;
+      font-size:24px;
+      letter-spacing:-.3px;
+    }
+    .sectionTitle p{margin:0; color:var(--muted); max-width:70ch}
+    .cards{
+      display:grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap:14px;
+    }
+    .pCard{
+      grid-column: span 6;
+      background: rgba(255,255,255,.05);
+      border:1px solid rgba(255,255,255,.12);
+      border-radius: var(--r);
+      padding:16px;
+      box-shadow: var(--shadow2);
+      transition: transform .18s ease, background .18s ease, border .18s ease;
+      position:relative;
+      overflow:hidden;
+    }
+    .pCard:hover{transform: translateY(-2px); background: rgba(255,255,255,.07); border-color: rgba(255,255,255,.18)}
+    .pCard::before{
+      content:"";
+      position:absolute; inset:-60%;
+      background: radial-gradient(circle at 30% 30%, rgba(124,92,255,.18), transparent 50%),
+                  radial-gradient(circle at 70% 35%, rgba(51,214,255,.12), transparent 55%);
+      transform: rotate(14deg);
+      pointer-events:none;
+    }
+    .pCard > *{position:relative}
+    @media (max-width: 860px){
+      .pCard{grid-column: span 12}
+    }
+    .pTop{
+      display:flex; align-items:flex-start; justify-content:space-between; gap:10px;
+      margin-bottom:10px;
+    }
+    .pill{
+      font-size:12px;
+      color: rgba(234,240,255,.78);
+      background: rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.12);
+      padding:6px 10px;
+      border-radius:999px;
+      white-space:nowrap;
+    }
+    .pCard h3{
+      margin:0;
+      font-size:16px;
       letter-spacing:-.2px;
     }
-    .sectionTitle p{margin:0; color:var(--muted); font-size:14px; line-height:1.5}
-    .cards3{display:grid; grid-template-columns: repeat(3, 1fr); gap:16px}
-    @media (max-width: 920px){.cards3{grid-template-columns:1fr}}
-    .smallCard{
-      padding:18px;
-      border-radius: var(--radius);
-      border: 1px solid var(--line);
-      background: linear-gradient(180deg, rgba(255,255,255,.03), rgba(0,0,0,.16));
-      position:relative;
-      overflow:hidden;
+    .pCard p{
+      margin:8px 0 12px;
+      color: var(--muted);
+      font-size:13.5px;
+      line-height:1.55;
     }
-    .smallCard::before{
-      content:"";
-      position:absolute; inset:-2px;
-      background: radial-gradient(420px 220px at 0% 0%, rgba(124,58,237,.18), transparent 60%);
-      opacity:.85; pointer-events:none;
+    .tags{display:flex; flex-wrap:wrap; gap:8px}
+    .tag{
+      font-size:12px; color: rgba(234,240,255,.78);
+      padding:6px 10px;
+      border-radius: 999px;
+      border:1px solid rgba(255,255,255,.11);
+      background: rgba(255,255,255,.04);
     }
-    .smallCard > *{position:relative}
-    .smallCard h3{margin:0 0 8px; font-size:16px}
-    .smallCard p{margin:0; color:var(--muted); line-height:1.65; font-size:14px}
 
-    /* PROJECTS */
-    .projects{
+    /* About */
+    .about{
       display:grid;
       grid-template-columns: 1fr 1fr;
-      gap:16px;
+      gap:14px;
+      align-items:start;
     }
-    @media (max-width: 960px){.projects{grid-template-columns:1fr}}
-    .proj{
+    @media (max-width: 980px){ .about{grid-template-columns:1fr} }
+    .bigCard{
+      background: rgba(255,255,255,.05);
+      border:1px solid rgba(255,255,255,.12);
+      border-radius: var(--r);
       padding:18px;
-      border-radius: var(--radius);
-      border:1px solid var(--line);
-      background: linear-gradient(180deg, rgba(255,255,255,.03), rgba(0,0,0,.16));
-      position:relative;
-      overflow:hidden;
-      min-height: 168px;
+      box-shadow: var(--shadow2);
     }
-    .proj::before{
-      content:"";
-      position:absolute; inset:-2px;
-      background:
-        radial-gradient(520px 260px at 0% 0%, rgba(34,197,94,.12), transparent 60%),
-        radial-gradient(520px 260px at 100% 0%, rgba(6,182,212,.10), transparent 60%);
-      opacity:.9; pointer-events:none;
-    }
-    .proj > *{position:relative}
-    .projTop{
-      display:flex; align-items:flex-start; justify-content:space-between; gap:12px;
-    }
-    .proj h3{margin:0; font-size:16px}
-    .proj .desc{margin:10px 0 0; color:var(--muted); font-size:14px; line-height:1.65}
-    .badges{display:flex; flex-wrap:wrap; gap:8px; margin-top:12px}
-    .badge{
-      font-size:12px;
-      padding:7px 10px;
-      border-radius:999px;
-      border:1px solid var(--line);
-      background: rgba(255,255,255,.03);
-      color: rgba(255,255,255,.88);
-    }
-    .projLinks{display:flex; gap:10px; margin-top:14px; flex-wrap:wrap}
-    .link{
-      font-weight:800;
+    .bigCard h3{margin:0 0 10px; font-size:16px}
+    .bigCard p{margin:0; color:var(--muted); line-height:1.65}
+
+    /* Footer */
+    footer{
+      padding:26px 0 38px;
+      border-top:1px solid rgba(255,255,255,.08);
+      color:var(--muted2);
       font-size:13px;
-      color: rgba(255,255,255,.9);
-      border:1px solid var(--line);
-      padding:9px 12px;
+    }
+    .foot{
+      display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap;
+    }
+
+    /* Reveal animations */
+    .reveal{opacity:0; transform: translateY(10px); transition: .7s cubic-bezier(.2,.8,.2,1)}
+    .reveal.show{opacity:1; transform:none}
+
+    /* Toast */
+    .toast{
+      position:fixed; left:50%; bottom:18px; transform: translateX(-50%);
+      background: rgba(10,16,30,.78);
+      border:1px solid rgba(255,255,255,.16);
+      padding:10px 12px;
       border-radius: 14px;
-      background: rgba(0,0,0,.14);
-      transition:.18s ease;
-    }
-    .link:hover{transform: translateY(-1px); border-color: rgba(255,255,255,.18)}
-    .muted{color:var(--muted)}
-    .code{
-      font-family:var(--mono);
-      font-size:12px;
-      color: rgba(255,255,255,.75);
-    }
-
-    /* TIMELINE */
-    .timeline{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap:16px;
-    }
-    @media (max-width: 960px){.timeline{grid-template-columns:1fr}}
-    .tl{
-      padding:18px;
-      border-radius: var(--radius);
-      border:1px solid var(--line);
-      background: rgba(0,0,0,.14);
-    }
-    .tl h3{margin:0 0 10px; font-size:16px}
-    .step{
-      display:flex; gap:12px;
-      padding:12px 0;
-      border-top:1px dashed rgba(255,255,255,.10);
-    }
-    .step:first-of-type{border-top:none; padding-top:0}
-    .num{
-      width:32px;height:32px;border-radius:12px;
-      display:grid;place-items:center;
-      border:1px solid var(--line);
-      background: rgba(255,255,255,.03);
-      font-family:var(--mono);
-      font-weight:900;
-    }
-    .step b{display:block; font-size:14px}
-    .step span{display:block; color:var(--muted); font-size:13px; margin-top:4px; line-height:1.45}
-
-    /* CONTACT */
-    .contact{
-      display:grid;
-      grid-template-columns: 1.2fr .8fr;
-      gap:16px;
-    }
-    @media (max-width: 960px){.contact{grid-template-columns:1fr}}
-    .contactBox{
-      padding:20px;
-      border-radius: var(--radius);
-      border:1px solid var(--line);
-      background: linear-gradient(180deg, rgba(255,255,255,.03), rgba(0,0,0,.18));
-    }
-    .contactBox h3{margin:0 0 10px}
-    .contactBox p{margin:0; color:var(--muted); line-height:1.65}
-    .contactGrid{
-      margin-top:14px;
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:10px;
-    }
-    @media (max-width:520px){.contactGrid{grid-template-columns:1fr}}
-    .field{
-      padding:12px;
-      border:1px solid var(--line);
-      border-radius: var(--radius2);
-      background: rgba(0,0,0,.14);
-    }
-    .field b{display:block; font-size:13px}
-    .field a, .field span{display:block; margin-top:6px; color:rgba(255,255,255,.88); font-weight:700; font-size:13px}
-    .footer{
-      padding:22px 0 40px;
-      color: rgba(255,255,255,.6);
+      backdrop-filter: blur(10px);
+      box-shadow: var(--shadow2);
+      color: rgba(234,240,255,.9);
       font-size:13px;
+      display:none;
+      z-index:100;
+      max-width: min(520px, calc(100vw - 24px));
     }
-
-    /* REVEAL ANIM */
-    .reveal{
-      opacity:0;
-      transform: translateY(16px);
-      transition: .7s ease;
-    }
-    .reveal.show{
-      opacity:1;
-      transform: translateY(0);
-    }
-
-    /* MOBILE MENU (tiny) */
-    .burger{display:none}
-    @media (max-width: 720px){
-      .navlinks{display:none}
-      .burger{display:inline-flex}
-      .nav.open .navlinks{
-        display:flex;
-        width:100%;
-        padding:10px 0 0;
-        gap:10px;
-      }
-      .nav{
-        flex-wrap:wrap;
-      }
-    }
+    .toast.show{display:block; animation: pop .18s ease}
+    @keyframes pop{from{transform:translateX(-50%) translateY(6px); opacity:.2}to{transform:translateX(-50%) translateY(0); opacity:1}}
   </style>
 </head>
-<body>
 
-  <header class="topbar">
-    <div class="wrap">
-      <nav class="nav" id="nav">
-        <a class="brand" href="#top">
-          <span class="dot"></span>
-          <span>Zubayd<span style="opacity:.65">.dev</span></span>
+<body>
+  <!-- Topbar -->
+  <div class="topbar">
+    <div class="container">
+      <div class="nav">
+        <a class="brand" href="#top" aria-label="Home">
+          <span class="logo" aria-hidden="true"></span>
+          <span>Zubayd<span style="opacity:.8">.</span></span>
         </a>
 
-        <div class="navlinks" aria-label="Primary">
-          <a href="#about">About</a>
-          <a href="#skills">Skills</a>
+        <div class="links" aria-label="Navigation">
           <a href="#projects">Projects</a>
-          <a href="#journey">Journey</a>
+          <a href="#skills">Skills</a>
+          <a href="#about">About</a>
           <a href="#contact">Contact</a>
+          <a class="btn primary" href="#contact">Hire Me</a>
         </div>
-
-        <div class="cta">
-          <button class="btn burger" id="burger" aria-label="Menu"><span class="ic">≡</span>Menu</button>
-          <a class="btn" href="#projects"><span class="ic">&lt;/&gt;</span>See Work</a>
-          <a class="btn primary" href="#contact"><span class="ic">→</span>Hire Me</a>
-        </div>
-      </nav>
+      </div>
     </div>
-  </header>
+  </div>
 
-  <main id="top">
-    <div class="wrap hero">
-      <div class="heroGrid">
-        <section class="card reveal">
-          <div class="heroMain">
-            <div class="kicker">
-              <span class="pill">Android • Java • Firebase</span>
-              <span class="pill">Bangladesh</span>
-              <span class="pill">Open to Remote</span>
-            </div>
-
-            <h1>
-              Android Developer (Java)<br/>
-              building reliable apps with
-              <span style="background:linear-gradient(135deg, rgba(124,58,237,.95), rgba(6,182,212,.9));
-                -webkit-background-clip:text;background-clip:text;color:transparent;">clean UI</span>
-              & scalable data.
-            </h1>
-
-            <p class="lead">
-              আমি <b>Zubayd Hossain</b> — আমি Java দিয়ে Android অ্যাপ বানাই, যেখানে ফোকাস থাকে
-              <b>পারফরম্যান্স, ইউজার এক্সপেরিয়েন্স</b> এবং <b>রিয়েল-ওয়ার্ল্ড বিজনেস লজিক</b>।
-              POS, Inventory, School Management System, Attendance (NFC/QR) — এই ধরনের বড় প্রজেক্ট আমি পরিকল্পনা করে এগোই।
-            </p>
-
-            <div class="heroActions">
-              <a class="btn primary" href="#contact"><span class="ic">✦</span>Let’s Work Together</a>
-              <a class="btn" href="#projects"><span class="ic">▣</span>Featured Projects</a>
-              <a class="btn" href="#" onclick="downloadResume(); return false;"><span class="ic">⇩</span>Download Resume</a>
-            </div>
-
-            <div class="metaRow">
-              <div class="meta">
-                <div class="tag">01</div>
-                <div>
-                  <b>Strong with Java</b>
-                  <span>Architecture, UI flow, clean code, debugging mindset.</span>
-                </div>
-              </div>
-              <div class="meta">
-                <div class="tag">02</div>
-                <div>
-                  <b>Database + Sync</b>
-                  <span>SQLite + Firebase (Realtime DB), structured data design.</span>
-                </div>
-              </div>
-              <div class="meta">
-                <div class="tag">03</div>
-                <div>
-                  <b>Product Thinking</b>
-                  <span>Planning-first approach: scalable, future-proof features.</span>
-                </div>
-              </div>
-            </div>
+  <!-- Hero -->
+  <header id="top" class="hero">
+    <div class="container">
+      <div class="grid">
+        <div class="reveal">
+          <div class="badge">
+            <span class="dot" aria-hidden="true"></span>
+            <span>Android (Java) Developer • Firebase / SQLite • POS / School Management</span>
           </div>
-        </section>
 
-        <aside class="card reveal">
-          <div class="heroSide">
-            <div class="avatar">
-              <div style="display:flex; gap:12px; align-items:center;">
-                <div class="pfp" aria-hidden="true"></div>
-                <div class="who">
-                  <b>Zubayd Hossain</b>
-                  <span>Android Developer • Java</span>
+          <h1>
+            আমি বানাই <span class="grad">ফাস্ট, রিলায়েবল</span> Android অ্যাপ —
+            যেগুলো বাস্তবে ব্যবসা/স্কুলে কাজ করে।
+          </h1>
+
+          <p class="sub">
+            আমি <b>Java</b> দিয়ে Android অ্যাপ ডেভেলপ করি — POS & Inventory, School Management, NFC/QR Attendance,
+            Firebase Realtime Database/Firestore, SQLite offline-first architecture, clean UI/UX এবং maintainable codebase।
+            আমার ফোকাস: <b>production-ready</b> ফিচার + <b>future-proof</b> data structure।
+          </p>
+
+          <div class="cta">
+            <!-- TODO: Replace links -->
+            <a class="btn primary" href="#contact" aria-label="Contact">কাজের প্রস্তাব দিন</a>
+            <a class="btn ghost" href="#projects" aria-label="View Projects">প্রজেক্ট দেখুন</a>
+            <button class="btn" id="copyEmailBtn" type="button" aria-label="Copy Email">
+              <span>📩</span><span>ইমেইল কপি</span>
+            </button>
+          </div>
+
+          <div class="quick" aria-label="Highlights">
+            <span class="chip" title="Offline-first POS & Inventory">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+              POS / Inventory
+            </span>
+            <span class="chip" title="School Management + Attendance automation">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M3 7l9-4 9 4-9 4-9-4Z" stroke="currentColor" stroke-width="2"/><path d="M21 10v6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M5 11v6c0 1 3 3 7 3s7-2 7-3v-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+              School System
+            </span>
+            <span class="chip" title="NFC / QR Attendance & Notifications">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M7 7h10v10H7V7Z" stroke="currentColor" stroke-width="2"/><path d="M4 10V7a3 3 0 0 1 3-3h3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M20 14v3a3 3 0 0 1-3 3h-3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+              NFC / QR
+            </span>
+            <span class="chip" title="Clean architecture & scalable data models">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 2l9 5-9 5-9-5 9-5Z" stroke="currentColor" stroke-width="2"/><path d="M3 12l9 5 9-5" stroke="currentColor" stroke-width="2"/><path d="M3 17l9 5 9-5" stroke="currentColor" stroke-width="2"/></svg>
+              Scalable Structure
+            </span>
+          </div>
+        </div>
+
+        <!-- Right premium card -->
+        <aside class="card reveal" aria-label="Profile Summary">
+          <div class="cardHeader">
+            <div>
+              <div class="titleSm">Developer Snapshot</div>
+              <div class="muted">যা আমি ডেলিভার করতে পারি</div>
+            </div>
+            <span class="pill">Available</span>
+          </div>
+
+          <div class="cardBody">
+            <div class="statGrid">
+              <div class="stat">
+                <b>Java</b>
+                <span>Android Native</span>
+              </div>
+              <div class="stat">
+                <b>Firebase</b>
+                <span>Realtime / Firestore</span>
+              </div>
+              <div class="stat">
+                <b>SQLite</b>
+                <span>Offline-first</span>
+              </div>
+              <div class="stat">
+                <b>UI/UX</b>
+                <span>Clean & Friendly</span>
+              </div>
+            </div>
+
+            <div class="line"></div>
+
+            <div class="list">
+              <div class="li">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                  <path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <div>
+                  POS / Inventory System
+                  <small>Cart, Checkout, Stock update, Sales report</small>
                 </div>
               </div>
-              <span class="pill" title="Availability">Available</span>
-            </div>
 
-            <div class="mini">
-              <div class="box">
-                <b>Focus</b>
-                <span class="muted">POS • Inventory • Attendance</span>
+              <div class="li">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                  <path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <div>
+                  School Management + Attendance
+                  <small>NFC/QR, database sync, notification flow</small>
+                </div>
               </div>
-              <div class="box">
-                <b>Edge</b>
-                <span class="muted">Firebase + Clean UX</span>
-              </div>
-              <div class="box">
-                <b>Style</b>
-                <span class="muted">Practical • Reliable</span>
-              </div>
-              <div class="box">
-                <b>Goal</b>
-                <span class="muted">Build real products</span>
-              </div>
-            </div>
 
-            <div class="stack">
-              <h3>Tech Stack</h3>
-              <div class="chips">
-                <span class="chip">Java</span>
-                <span class="chip">Android SDK</span>
-                <span class="chip">Firebase Realtime DB</span>
-                <span class="chip">SQLite</span>
-                <span class="chip">RecyclerView</span>
-                <span class="chip">MVVM</span>
-                <span class="chip">REST APIs</span>
-                <span class="chip">Material Design</span>
+              <div class="li">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                  <path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <div>
+                  Invoice PDF + Print/Download UX
+                  <small>Clean invoice layout & stable export</small>
+                </div>
               </div>
             </div>
 
-            <div class="stack">
-              <h3>Quick Links</h3>
-              <div class="chips">
-                <a class="chip" href="https://github.com/" target="_blank" rel="noreferrer">GitHub</a>
-                <a class="chip" href="https://www.linkedin.com/" target="_blank" rel="noreferrer">LinkedIn</a>
-                <a class="chip" href="mailto:yourmail@example.com">Email</a>
-                <a class="chip" href="#contact">Contact</a>
-              </div>
-              <div class="code" style="margin-top:10px;opacity:.9">
-                Tip: Replace links with your real profiles.
-              </div>
-            </div>
+            <div class="line"></div>
 
+            <!-- TODO: Replace these -->
+            <div style="display:flex; gap:10px; flex-wrap:wrap">
+              <a class="btn" href="https://github.com/" target="_blank" rel="noreferrer">GitHub</a>
+              <a class="btn" href="https://www.linkedin.com/" target="_blank" rel="noreferrer">LinkedIn</a>
+              <a class="btn" href="#contact">Contact</a>
+            </div>
           </div>
         </aside>
       </div>
-
-      <section id="about" class="reveal">
-        <div class="sectionTitle">
-          <h2>About</h2>
-          <p>Professional mindset • Practical execution • Long-term scalability</p>
-        </div>
-
-        <div class="cards3">
-          <div class="smallCard">
-            <h3>What I build</h3>
-            <p>
-              আমি এমন অ্যাপ বানাই যেগুলো বাস্তবে মানুষ ব্যবহার করে — POS/Inventory,
-              School Management System, Attendance Automation (NFC/QR), Reports, PDF invoice, dashboards।
-            </p>
-          </div>
-          <div class="smallCard">
-            <h3>How I work</h3>
-            <p>
-              আগে পরিকল্পনা, তারপর ইমপ্লিমেন্টেশন। Data structure, UI flow, edge cases — এগুলো ঠিক করে তারপর কোড।
-              ফলে প্রজেক্ট পরে ভাঙে না, স্কেল করা সহজ হয়।
-            </p>
-          </div>
-          <div class="smallCard">
-            <h3>What you get</h3>
-            <p>
-              Clean UI, reliable logic, maintainable code, and a developer who cares about product quality —
-              শুধু “ফিচার” না, “সিস্টেম”।
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <section id="skills" class="reveal">
-        <div class="sectionTitle">
-          <h2>Skills</h2>
-          <p>Core strengths that match real client projects</p>
-        </div>
-
-        <div class="projects">
-          <div class="proj">
-            <div class="projTop">
-              <div>
-                <h3>Android (Java) Engineering</h3>
-                <div class="desc">
-                  Activities/Fragments, RecyclerView, ViewModel/MVVM, dialogs, permissions, background tasks, performance tuning.
-                </div>
-              </div>
-              <span class="pill">Core</span>
-            </div>
-            <div class="badges">
-              <span class="badge">Java</span>
-              <span class="badge">Android SDK</span>
-              <span class="badge">MVVM</span>
-              <span class="badge">Material UI</span>
-            </div>
-          </div>
-
-          <div class="proj">
-            <div class="projTop">
-              <div>
-                <h3>Database & Sync</h3>
-                <div class="desc">
-                  SQLite offline-first designs, Firebase Realtime Database structure, CRUD, indexing mindset, data consistency.
-                </div>
-              </div>
-              <span class="pill">Data</span>
-            </div>
-            <div class="badges">
-              <span class="badge">SQLite</span>
-              <span class="badge">Firebase</span>
-              <span class="badge">Reports</span>
-              <span class="badge">Structured Nodes</span>
-            </div>
-          </div>
-
-          <div class="proj">
-            <div class="projTop">
-              <div>
-                <h3>Business Features</h3>
-                <div class="desc">
-                  POS billing, cart, stock updates, purchase history, invoice PDF, customer info flow, admin dashboards.
-                </div>
-              </div>
-              <span class="pill">Product</span>
-            </div>
-            <div class="badges">
-              <span class="badge">Invoice PDF</span>
-              <span class="badge">Cart + Checkout</span>
-              <span class="badge">Sales Report</span>
-              <span class="badge">Stock</span>
-            </div>
-          </div>
-
-          <div class="proj">
-            <div class="projTop">
-              <div>
-                <h3>IoT & Automation (supporting)</h3>
-                <div class="desc">
-                  NFC/QR attendance concepts, ESP32/OLED experiments, device-to-app workflows, notification logs.
-                </div>
-              </div>
-              <span class="pill">IoT</span>
-            </div>
-            <div class="badges">
-              <span class="badge">NFC/QR</span>
-              <span class="badge">ESP32</span>
-              <span class="badge">Automation</span>
-              <span class="badge">SMS/Email API</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="projects" class="reveal">
-        <div class="sectionTitle">
-          <h2>Featured Projects</h2>
-          <p>Replace demo links with your real GitHub / video / Play Store links</p>
-        </div>
-
-        <div class="projects">
-          <div class="proj">
-            <div class="projTop">
-              <div>
-                <h3>GharerElectro POS (Offline/Online)</h3>
-                <div class="desc">
-                  Java + SQLite/Firebase based POS system: product management, cart, checkout, stock update, invoice dialog + PDF download.
-                </div>
-              </div>
-              <span class="pill">POS</span>
-            </div>
-            <div class="badges">
-              <span class="badge">Java</span>
-              <span class="badge">SQLite</span>
-              <span class="badge">Firebase</span>
-              <span class="badge">PDF Invoice</span>
-            </div>
-            <div class="projLinks">
-              <a class="link" href="#" target="_blank" rel="noreferrer">GitHub</a>
-              <a class="link" href="#" target="_blank" rel="noreferrer">Demo Video</a>
-              <a class="link" href="#contact">Work with me</a>
-            </div>
-          </div>
-
-          <div class="proj">
-            <div class="projTop">
-              <div>
-                <h3>School Management System (Attendance Automation)</h3>
-                <div class="desc">
-                  NFC/QR attendance workflow, central database, parent notification logs, roles (Student/Teacher/Staff/Parent), scalable planning.
-                </div>
-              </div>
-              <span class="pill">EdTech</span>
-            </div>
-            <div class="badges">
-              <span class="badge">NFC/QR</span>
-              <span class="badge">MySQL</span>
-              <span class="badge">Logs</span>
-              <span class="badge">Scalable</span>
-            </div>
-            <div class="projLinks">
-              <a class="link" href="#" target="_blank" rel="noreferrer">Case Study</a>
-              <a class="link" href="#" target="_blank" rel="noreferrer">Architecture</a>
-              <a class="link" href="#contact">Discuss</a>
-            </div>
-          </div>
-
-          <div class="proj">
-            <div class="projTop">
-              <div>
-                <h3>Firebase Inventory & Sales Reports</h3>
-                <div class="desc">
-                  Realtime sync inventory, purchase history structure (purchase + purchaseItems), sales analytics friendly schema.
-                </div>
-              </div>
-              <span class="pill">Data</span>
-            </div>
-            <div class="badges">
-              <span class="badge">Realtime DB</span>
-              <span class="badge">CRUD</span>
-              <span class="badge">Schema</span>
-              <span class="badge">Reports</span>
-            </div>
-            <div class="projLinks">
-              <a class="link" href="#" target="_blank" rel="noreferrer">GitHub</a>
-              <a class="link" href="#" target="_blank" rel="noreferrer">Screens</a>
-            </div>
-          </div>
-
-          <div class="proj">
-            <div class="projTop">
-              <div>
-                <h3>ESP32 + OLED Mini Projects</h3>
-                <div class="desc">
-                  Digital clock & simple UI experiments — bridging IoT devices with real-world school/product systems later.
-                </div>
-              </div>
-              <span class="pill">IoT</span>
-            </div>
-            <div class="badges">
-              <span class="badge">ESP32</span>
-              <span class="badge">I2C OLED</span>
-              <span class="badge">Embedded</span>
-              <span class="badge">Prototyping</span>
-            </div>
-            <div class="projLinks">
-              <a class="link" href="#" target="_blank" rel="noreferrer">Repo</a>
-              <a class="link" href="#" target="_blank" rel="noreferrer">Notes</a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="journey" class="reveal">
-        <div class="sectionTitle">
-          <h2>Journey</h2>
-          <p>Struggle → consistency → product mindset</p>
-        </div>
-
-        <div class="timeline">
-          <div class="tl">
-            <h3>How I grew</h3>
-            <div class="step">
-              <div class="num">1</div>
-              <div>
-                <b>Learn by building</b>
-                <span>ছোট ফিচার থেকে শুরু করে বড় সিস্টেম—POS, cart, reports, invoice PDF—সব হাতে-কলমে।</span>
-              </div>
-            </div>
-            <div class="step">
-              <div class="num">2</div>
-              <div>
-                <b>Structure first</b>
-                <span>ডেটা স্ট্রাকচার + UI ফ্লো ঠিক করে তারপর কোড—পরে স্কেল করতে সমস্যা হয় না।</span>
-              </div>
-            </div>
-            <div class="step">
-              <div class="num">3</div>
-              <div>
-                <b>Real-world thinking</b>
-                <span>Stock, purchase history, notifications, logs—বাস্তব প্রডাক্টে যেগুলো লাগে সেগুলো মাথায় রেখে কাজ।</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="tl">
-            <h3>What I’m targeting</h3>
-            <div class="step">
-              <div class="num">A</div>
-              <div>
-                <b>Premium Android apps</b>
-                <span>Clean UI + solid logic + long-term maintainability (Java-based professional projects)।</span>
-              </div>
-            </div>
-            <div class="step">
-              <div class="num">B</div>
-              <div>
-                <b>Scalable systems</b>
-                <span>POS/Inventory + School Management + Attendance automation—ফিউচার আপডেট friendly design।</span>
-              </div>
-            </div>
-            <div class="step">
-              <div class="num">C</div>
-              <div>
-                <b>IoT + Mobile integration</b>
-                <span>NFC/QR devices, ESP32 prototypes—মোবাইল অ্যাপের সাথে রিয়েল ডিভাইস ওয়ার্কফ্লো।</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="contact" class="reveal">
-        <div class="sectionTitle">
-          <h2>Contact</h2>
-          <p>Let’s build something reliable and beautiful.</p>
-        </div>
-
-        <div class="contact">
-          <div class="contactBox">
-            <h3>Send me a message</h3>
-            <p>
-              আপনি যদি Android app / POS / Inventory / School automation project করতে চান,
-              আমি structure + UI + database সব মিলিয়ে পরিষ্কারভাবে এগিয়ে নিতে পারবো।
-            </p>
-
-            <div class="heroActions" style="margin-top:16px">
-              <a class="btn primary" href="mailto:yourmail@example.com?subject=Project%20Inquiry%20—%20Android%20Development&body=Hi%20Zubayd,%0A%0AI%20want%20to%20discuss%20a%20project.%20Here%20are%20the%20details:%0A%0A-%20Project%20type:%20%0A-%20Timeline:%20%0A-%20Budget:%20%0A-%20Your%20preferred%20features:%20%0A%0AThanks!"><span class="ic">✉</span>Email Me</a>
-              <a class="btn" href="#" onclick="copyText('WhatsApp: +880XXXXXXXXXX'); return false;"><span class="ic">⎘</span>Copy WhatsApp</a>
-              <a class="btn" href="#" onclick="copyText('Zubayd Hossain — Android Developer (Java)'); return false;"><span class="ic">⎘</span>Copy Title</a>
-            </div>
-
-            <div class="contactGrid">
-              <div class="field">
-                <b>Email</b>
-                <a href="mailto:yourmail@example.com">jubayd32@gmail.com</a>
-              </div>
-              <div class="field">
-                <b>Location</b>
-                <span>Dhaka, Bangladesh</span>
-              </div>
-              <div class="field">
-                <b>GitHub</b>
-                <a href="https://github.com/" target="_blank" rel="noreferrer">github.com/Zubayd-Hossain/</a>
-              </div>
-              <div class="field">
-                <b>LinkedIn</b>
-                <a href="https://www.linkedin.com/" target="_blank" rel="noreferrer">linkedin.com/in/zubayd-hossain/</a>
-              </div>
-            </div>
-
-            <div class="code" style="margin-top:14px">
-              * Replace placeholders (email, GitHub, LinkedIn, WhatsApp) with your real info.
-            </div>
-          </div>
-
-          <div class="contactBox">
-            <h3>One-liner Bio</h3>
-            <p style="margin-bottom:12px">
-              Java-based Android Developer building POS/Inventory and School automation systems with clean UI, scalable data, and reliable logic.
-            </p>
-
-            <h3 style="margin-top:16px">What you can hire me for</h3>
-            <div class="chips" style="margin-top:10px">
-              <span class="chip">Android App (Java)</span>
-              <span class="chip">Firebase + SQLite</span>
-              <span class="chip">POS / Inventory</span>
-              <span class="chip">PDF Invoice</span>
-              <span class="chip">School Management</span>
-              <span class="chip">Attendance Automation</span>
-            </div>
-
-            <div class="stack" style="margin-top:14px">
-              <h3 style="margin-bottom:8px">Availability</h3>
-              <div class="code">Reply within 24 hours • Remote-friendly</div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <footer class="footer">
-        <div class="wrap">
-          <div style="display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px; align-items:center;">
-            <span>© <span id="year"></span> Zubayd Hossain • Built with focus on quality.</span>
-            <span class="code">Single-file • Fast • Mobile-first</span>
-          </div>
-        </div>
-      </footer>
-
     </div>
-  </main>
+  </header>
+
+  <!-- Projects -->
+  <section id="projects">
+    <div class="container">
+      <div class="sectionTitle reveal">
+        <div>
+          <h2>Selected Projects</h2>
+          <p>তোমার কাজ/সংগ্রামকে “ইমপ্যাক্ট” হিসেবে দেখানোই পোর্টফোলিওর মূল কাজ। নিচেরগুলো সেইভাবেই সাজানো।</p>
+        </div>
+        <a class="btn" href="#contact">Project Inquiry →</a>
+      </div>
+
+      <div class="cards">
+        <article class="pCard reveal">
+          <div class="pTop">
+            <h3>GharerElectro POS (Android • Java)</h3>
+            <span class="pill">Offline + Firebase Sync</span>
+          </div>
+          <p>
+            Billing, cart, stock update, sales history, purchase history এবং invoice PDF/print flow সহ একটি production-grade POS।
+            UI dialog-based invoice preview এবং stable PDF export।
+          </p>
+          <div class="tags">
+            <span class="tag">Java</span><span class="tag">SQLite</span><span class="tag">Firebase</span><span class="tag">RecyclerView</span><span class="tag">MVVM</span>
+          </div>
+        </article>
+
+        <article class="pCard reveal">
+          <div class="pTop">
+            <h3>School Management System (Web + App Vision)</h3>
+            <span class="pill">Scalable Structure</span>
+          </div>
+          <p>
+            Student/Teacher/Staff management, attendance automation, fee & transactions, exam & grading,
+            parent notifications (SMS/Email) এবং audit-friendly logs—একটি future-proof architecture পরিকল্পনা।
+          </p>
+          <div class="tags">
+            <span class="tag">MySQL</span><span class="tag">Roles</span><span class="tag">Reports</span><span class="tag">Notifications</span><span class="tag">Scalability</span>
+          </div>
+        </article>
+
+        <article class="pCard reveal">
+          <div class="pTop">
+            <h3>NFC / QR Attendance Device Concept</h3>
+            <span class="pill">Product + PoE Idea</span>
+          </div>
+          <p>
+            Gate/point-wise attendance capture: NFC reader + QR scanner + buzzer/LED,
+            ethernet/PoE connectivity দিয়ে scalable deployment—USB limitation কাটিয়ে product-style setup।
+          </p>
+          <div class="tags">
+            <span class="tag">NFC</span><span class="tag">QR</span><span class="tag">PoE</span><span class="tag">ESP32/MCU</span><span class="tag">IoT</span>
+          </div>
+        </article>
+
+        <article class="pCard reveal">
+          <div class="pTop">
+            <h3>Quiz App (Bangla Friendly)</h3>
+            <span class="pill">Engagement Features</span>
+          </div>
+          <p>
+            General knowledge + Bengali culture focused quiz app—daily challenge, ranking, rewards,
+            motivational quotes এবং push notification roadmap সহ।
+          </p>
+          <div class="tags">
+            <span class="tag">Android</span><span class="tag">UI/UX</span><span class="tag">Gamification</span><span class="tag">Notifications</span>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section id="skills">
+    <div class="container">
+      <div class="sectionTitle reveal">
+        <div>
+          <h2>Skills & Tools</h2>
+          <p>তোমার স্ট্রেংথ হলো “বাস্তব প্রজেক্টে কাজে লাগে”—এই পয়েন্টটা এখানে স্পষ্ট।</p>
+        </div>
+      </div>
+
+      <div class="about">
+        <div class="bigCard reveal">
+          <h3>Core (Android)</h3>
+          <p>
+            Java • Android SDK • Activities/Fragments • RecyclerView • ViewModel (MVVM) •
+            Background tasks (WorkManager basics) • Offline-first patterns • Clean UI dialog flows •
+            PDF Invoice export/print UX
+          </p>
+        </div>
+
+        <div class="bigCard reveal">
+          <h3>Data & Backend</h3>
+          <p>
+            Firebase Realtime Database / Firestore • Firebase rules planning • Structured nodes (purchaseItems, salesItems) •
+            SQLite schema design • MySQL backend planning • Notification logging concept (SMS/Email APIs)
+          </p>
+        </div>
+
+        <div class="bigCard reveal">
+          <h3>Product Thinking</h3>
+          <p>
+            Future-proof architecture • Scalability planning • Role-based system design •
+            Real-world workflow mapping (school gate attendance, POS checkout) •
+            Maintainable code & clean structure
+          </p>
+        </div>
+
+        <div class="bigCard reveal">
+          <h3>Hardware / IoT (Growing)</h3>
+          <p>
+            ESP32 basics • OLED integration • RFID/NFC concept • PoE idea for deployment •
+            PCB planning (EasyEDA) — mobile app + device ecosystem mindset
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about">
+    <div class="container">
+      <div class="sectionTitle reveal">
+        <div>
+          <h2>About Me</h2>
+          <p>তোমার “সংগ্রাম + সিরিয়াস লার্নিং + লং-টার্ম ভিশন”—এই টোনটাই এখানে রাখা হয়েছে।</p>
+        </div>
+      </div>
+
+      <div class="about">
+        <div class="bigCard reveal">
+          <h3>আমি কীভাবে কাজ করি</h3>
+          <p>
+            আমি কাজ শুরু করি সমস্যা/ওয়ার্কফ্লো বুঝে—তারপর data structure ঠিক করি, তারপর UI flow, তারপর implementation।
+            আমার লক্ষ্য থাকে: কম bug, স্পষ্ট code, এবং ভবিষ্যতে সহজে feature add করা যায় এমন structure।
+          </p>
+        </div>
+
+        <div class="bigCard reveal">
+          <h3>আমি কী বানাতে ভালোবাসি</h3>
+          <p>
+            এমন অ্যাপ যেগুলো সত্যিই মানুষের কাজ সহজ করে—যেমন POS, inventory, school automation,
+            এবং attendance + notification system। আমার স্বপ্ন: app + IoT device মিলিয়ে real-world product বানানো।
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <div class="container">
+      <div class="sectionTitle reveal">
+        <div>
+          <h2>Contact</h2>
+          <p>একটা সুন্দর CTA রাখলাম—যাতে ক্লায়েন্ট/রিক্রুটার দ্রুত সিদ্ধান্ত নিতে পারে।</p>
+        </div>
+      </div>
+
+      <div class="about">
+        <div class="bigCard reveal">
+          <h3>Let’s build something real.</h3>
+          <p style="margin-bottom:12px">
+            Project/Job opportunity থাকলে একটা মেসেজ দিন। আমি দ্রুত reply করি এবং পরিষ্কার plan দিয়ে কাজ শুরু করি।
+          </p>
+
+          <!-- TODO: Replace these -->
+          <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:10px">
+            <a class="btn primary" href="mailto:yourmail@example.com">Email Me</a>
+            <a class="btn" href="https://wa.me/8801XXXXXXXXX" target="_blank" rel="noreferrer">WhatsApp</a>
+            <a class="btn" href="https://github.com/" target="_blank" rel="noreferrer">GitHub</a>
+            <a class="btn" href="https://www.linkedin.com/" target="_blank" rel="noreferrer">LinkedIn</a>
+          </div>
+
+          <div class="line"></div>
+
+          <div style="font-size:13px; color:var(--muted)">
+            <b>Tip:</b> Email subject এ লিখতে পারো: <span style="color:rgba(234,240,255,.9)">“Android Developer — Project Inquiry”</span>
+          </div>
+        </div>
+
+        <div class="bigCard reveal">
+          <h3>Quick Info</h3>
+          <p>
+            <b>Name:</b> Zubayd Hossain<br/>
+            <b>Role:</b> Android (Java) Developer<br/>
+            <b>Focus:</b> POS, Inventory, School Management, NFC/QR Attendance<br/>
+            <b>Stack:</b> Java, Firebase, SQLite, MySQL planning<br/>
+            <b>Location:</b> Bangladesh (GMT+6)
+          </p>
+
+          <div class="line"></div>
+
+          <button class="btn" id="copyAllBtn" type="button">Copy contact template</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="foot">
+        <div>© <span id="year"></span> Zubayd Hossain • Built with care.</div>
+        <div style="display:flex; gap:12px; flex-wrap:wrap">
+          <a href="#top">Back to top ↑</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
   <script>
-    // Tiny mobile menu
-    const nav = document.getElementById('nav');
-    const burger = document.getElementById('burger');
-    if (burger) burger.addEventListener('click', () => nav.classList.toggle('open'));
+    // ====== EDIT THESE ======
+    const EMAIL = "yourmail@example.com";         // <-- set your email
+    const WHATSAPP = "+8801XXXXXXXXX";            // <-- set your WhatsApp (display only)
+    const GITHUB = "https://github.com/";         // <-- set your GitHub
+    const LINKEDIN = "https://www.linkedin.com/"; // <-- set your LinkedIn
+    // ========================
 
-    // Reveal animation on scroll
-    const items = document.querySelectorAll('.reveal');
-    const io = new IntersectionObserver((entries)=>{
-      entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('show'); });
+    // Replace dynamic links safely
+    document.querySelectorAll('a[href="mailto:yourmail@example.com"]').forEach(a => a.href = "mailto:" + EMAIL);
+    document.querySelectorAll('a[href="https://wa.me/8801XXXXXXXXX"]').forEach(a => {
+      const digits = WHATSAPP.replace(/[^\d]/g,'');
+      a.href = "https://wa.me/" + digits;
+    });
+    document.querySelectorAll('a[href="https://github.com/"]').forEach(a => a.href = GITHUB);
+    document.querySelectorAll('a[href="https://www.linkedin.com/"]').forEach(a => a.href = LINKEDIN);
+
+    // Year
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Reveal on scroll
+    const els = [...document.querySelectorAll(".reveal")];
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if(e.isIntersecting){
+          e.target.classList.add("show");
+          io.unobserve(e.target);
+        }
+      });
     }, {threshold: .12});
-    items.forEach(el=>io.observe(el));
+    els.forEach(el => io.observe(el));
 
-    // Footer year
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    // Copy helper
-    function copyText(text){
-      navigator.clipboard.writeText(text).then(()=>toast("Copied ✓"));
+    // Toast
+    const toast = document.getElementById("toast");
+    let t;
+    function showToast(msg){
+      toast.textContent = msg;
+      toast.classList.add("show");
+      clearTimeout(t);
+      t = setTimeout(()=> toast.classList.remove("show"), 1800);
     }
 
-    // Simple toast
-    let toastEl;
-    function toast(msg){
-      if(!toastEl){
-        toastEl = document.createElement('div');
-        toastEl.style.position='fixed';
-        toastEl.style.bottom='18px';
-        toastEl.style.left='50%';
-        toastEl.style.transform='translateX(-50%)';
-        toastEl.style.padding='10px 14px';
-        toastEl.style.border='1px solid rgba(255,255,255,.14)';
-        toastEl.style.background='rgba(0,0,0,.55)';
-        toastEl.style.backdropFilter='blur(10px)';
-        toastEl.style.borderRadius='14px';
-        toastEl.style.color='rgba(255,255,255,.92)';
-        toastEl.style.fontWeight='800';
-        toastEl.style.fontSize='13px';
-        toastEl.style.zIndex='999';
-        document.body.appendChild(toastEl);
+    // Copy email
+    document.getElementById("copyEmailBtn").addEventListener("click", async () => {
+      try{
+        await navigator.clipboard.writeText(EMAIL);
+        showToast("✅ Email copied: " + EMAIL);
+      }catch{
+        showToast("⚠️ Copy failed (browser permission).");
       }
-      toastEl.textContent = msg;
-      toastEl.style.opacity='1';
-      clearTimeout(toastEl._t);
-      toastEl._t = setTimeout(()=>toastEl.style.opacity='0', 1400);
-    }
+    });
 
-    // Resume download (placeholder)
-    function downloadResume(){
-      // Option 1: Replace with your real CV PDF URL
-      // window.open("https://yourdomain.com/Zubayd_Hossain_Resume.pdf", "_blank");
+    // Copy contact template
+    document.getElementById("copyAllBtn").addEventListener("click", async () => {
+      const template =
+`Hello Zubayd,
+I found your portfolio and I’d like to discuss a project.
 
-      // Option 2: Auto-generate a tiny placeholder file
-      const text = `Zubayd Hossain — Android Developer (Java)\n\nEmail:jubayd32@gmail.com\nGitHub:https://github.com/Zubayd-Hossain/\nLinkedIn: https://www.linkedin.com/in/zubayd-hossain/\n\nSummary:\n- Android (Java), Firebase, SQLite, POS/Inventory, School Automation\n`;
-      const blob = new Blob([text], {type: "text/plain"});
-      const a = document.createElement("a");
-      a.href = URL.createObjectURL(blob);
-      a.download = "Zubayd_Hossain_Resume.txt";
-      a.click();
-      URL.revokeObjectURL(a.href);
-      toast("Resume downloaded (placeholder)");
-    }
+Project type:
+Timeline:
+Budget:
+Requirements:
+
+Please share your availability and relevant work examples.
+Thanks!`;
+      try{
+        await navigator.clipboard.writeText(template);
+        showToast("✅ Template copied!");
+      }catch{
+        showToast("⚠️ Copy failed (browser permission).");
+      }
+    });
   </script>
 </body>
 </html>
