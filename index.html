@@ -7,7 +7,6 @@
   <meta name="theme-color" content="#0b1220" />
   <title>Zubayd Hossain — Android (Java) Developer</title>
 
-  <!-- Open Graph -->
   <meta property="og:title" content="Zubayd Hossain — Android (Java) Developer" />
   <meta property="og:description" content="POS • Inventory • School Management • NFC/QR Attendance • Firebase • SQLite" />
   <meta property="og:type" content="website" />
@@ -69,17 +68,12 @@
       display:flex; align-items:center; gap:10px;
       font-weight:800; letter-spacing:.2px;
     }
-    .logo{
-      width:34px; height:34px; border-radius:12px;
-      background: linear-gradient(135deg, var(--brand), var(--brand2));
+    /* Logo replace with Photo class */
+    .top-photo{
+      width:34px; height:34px; border-radius:10px;
+      object-fit: cover;
       box-shadow: 0 10px 25px rgba(124,92,255,.25);
-      position:relative; overflow:hidden;
-    }
-    .logo::after{
-      content:"";
-      position:absolute; inset:-40%;
-      background: radial-gradient(circle at 30% 30%, rgba(255,255,255,.55), transparent 45%);
-      transform: rotate(20deg);
+      border: 1px solid rgba(255,255,255,.1);
     }
 
     .links{
@@ -350,12 +344,11 @@
 </head>
 
 <body>
-  <!-- Topbar -->
   <div class="topbar">
     <div class="container">
       <div class="nav">
         <a class="brand" href="#top" aria-label="Home">
-          <span class="logo" aria-hidden="true"></span>
+          <img src="zubayd.jpeg" alt="Zubayd" class="top-photo">
           <span>Zubayd<span style="opacity:.8">.</span></span>
         </a>
 
@@ -376,7 +369,6 @@
     </div>
   </div>
 
-  <!-- Hero -->
   <header id="top" class="hero">
     <div class="container">
       <div class="grid">
@@ -424,7 +416,6 @@
           </div>
         </div>
 
-        <!-- Right premium card -->
         <aside class="card reveal" aria-label="Profile Summary">
           <div class="cardHeader">
             <div>
@@ -501,7 +492,6 @@
     </div>
   </header>
 
-  <!-- Projects -->
   <section id="projects">
     <div class="container">
       <div class="sectionTitle reveal">
@@ -574,7 +564,6 @@
     </div>
   </section>
 
-  <!-- Skills -->
   <section id="skills">
     <div class="container">
       <div class="sectionTitle reveal">
@@ -621,7 +610,6 @@
     </div>
   </section>
 
-  <!-- About -->
   <section id="about">
     <div class="container">
       <div class="sectionTitle reveal">
@@ -653,7 +641,6 @@
     </div>
   </section>
 
-  <!-- Contact -->
   <section id="contact">
     <div class="container">
       <div class="sectionTitle reveal">
@@ -693,7 +680,6 @@
             <b data-i18n="qi_focus_b">Focus:</b> <span>POS, Inventory, School Management, NFC/QR Attendance</span><br/>
             <b data-i18n="qi_stack_b">Stack:</b> <span>Java, Firebase, SQLite, MySQL planning</span><br/>
             <b data-i18n="qi_loc_b">Location:</b> <span>Bangladesh (GMT+6)</span><br/>
-        
             <b data-i18n="qi_email_b">Email:</b> <span>jubayd32@gmail.com</span>
           </p>
 
@@ -720,11 +706,7 @@
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
   <script>
-    // ===== Fixed Contact Info (Already Set) =====
     const EMAIL = "jubayd32@gmail.com";
-    const WHATSAPP_DIGITS = "8801754462804";
-    // ===========================================
-
     document.getElementById("year").textContent = new Date().getFullYear();
 
     // Reveal on scroll
@@ -753,244 +735,34 @@
     document.getElementById("copyEmailBtn").addEventListener("click", async () => {
       try{
         await navigator.clipboard.writeText(EMAIL);
-        showToast("✅ Email copied: " + EMAIL);
+        showToast("✅ Email copied!");
       }catch{
-        showToast("⚠️ Copy failed (browser permission).");
+        showToast("⚠️ Copy failed.");
       }
     });
 
+    // Language Toggle logic (Placeholder for your i18n implementation)
+    document.getElementById("btnEn").onclick = () => {
+        document.getElementById("btnEn").classList.add("active");
+        document.getElementById("btnBn").classList.remove("active");
+        // Logic for EN
+    };
+    document.getElementById("btnBn").onclick = () => {
+        document.getElementById("btnBn").classList.add("active");
+        document.getElementById("btnEn").classList.remove("active");
+        // Logic for BN
+    };
+
     // Copy template
     document.getElementById("copyTemplateBtn").addEventListener("click", async () => {
-      const template =
-`Hello Zubayd,
-I found your portfolio and I’d like to discuss a project.
-
-Project type:
-Timeline:
-Budget:
-Requirements:
-
-Please share your availability and relevant work examples.
-Thanks!`;
+      const template = `Hello Zubayd, I found your portfolio...`;
       try{
         await navigator.clipboard.writeText(template);
         showToast("✅ Template copied!");
       }catch{
-        showToast("⚠️ Copy failed (browser permission).");
+        showToast("⚠️ Copy failed.");
       }
     });
-
-    // i18n dictionary (EN default)
-    const I18N = {
-      en: {
-        nav_projects: "Projects",
-        nav_skills: "Skills",
-        nav_about: "About",
-        nav_contact: "Contact",
-        nav_hire: "Hire Me",
-
-        hero_badge: "Android (Java) Developer • Firebase / SQLite • POS / School Systems",
-        hero_title: `I build <span class="grad">fast, reliable</span> Android apps — built for real-world use.`,
-        hero_sub: `I develop Android apps in <b>Java</b> — POS & Inventory, School Management, NFC/QR Attendance,
-                  Firebase (Realtime/Firestore), SQLite offline-first architecture, clean UI/UX, and maintainable codebases.
-                  My focus: <b>production-ready</b> features + <b>future-proof</b> data structure.`,
-        hero_cta1: "Send a Proposal",
-        hero_cta2: "View Projects",
-        hero_copy_email: "Copy Email",
-
-        chip_pos: "POS / Inventory",
-        chip_school: "School System",
-        chip_nfc: "NFC / QR",
-        chip_scale: "Scalable Structure",
-
-        snap_title: "Developer Snapshot",
-        snap_sub: "What I can deliver",
-        snap_avail: "Available",
-        snap_java: "Android Native",
-        snap_fb: "Realtime / Firestore",
-        snap_sqlite: "Offline-first",
-        snap_ui: "Clean & Friendly",
-        li1_title: "POS / Inventory System",
-        li1_sub: "Cart, checkout, stock updates, sales reports",
-        li2_title: "School Management + Attendance",
-        li2_sub: "NFC/QR, database sync, notification flow",
-        li3_title: "Invoice PDF + Print/Download UX",
-        li3_sub: "Clean invoice layout & stable export",
-        snap_contact: "Contact",
-
-        proj_title: "Selected Projects",
-        proj_sub: "Your portfolio should highlight impact. These are presented in a recruiter-friendly, outcome-focused way.",
-        proj_cta: "Project Inquiry →",
-        p1_title: "GharerElectro POS (Android • Java)",
-        p1_pill: "Offline + Firebase Sync",
-        p1_desc: "A production-grade POS with billing, cart, stock updates, sales history, purchase history, and a clean invoice PDF/print flow with dialog-based preview.",
-        p2_title: "School Management System (Architecture & Planning)",
-        p2_pill: "Scalable Structure",
-        p2_desc: "Student/Teacher/Staff management, attendance automation, fees & transactions, exam & grading, parent notifications (SMS/Email), and audit-friendly logs — designed to scale.",
-        p3_title: "NFC / QR Attendance Device Concept",
-        p3_pill: "Product + PoE Idea",
-        p3_desc: "Gate/point-wise attendance capture with NFC + QR, buzzer/LED feedback, and ethernet/PoE connectivity for scalable deployment beyond USB limitations.",
-        p4_title: "Bangla Quiz App (Engagement Roadmap)",
-        p4_pill: "Gamification",
-        p4_desc: "A friendly quiz app focused on general knowledge and Bengali culture with daily challenges, rankings, rewards, motivational quotes, and push notification roadmap.",
-
-        skills_title: "Skills & Tools",
-        skills_sub: "A practical, real-project skill set focused on shipping maintainable apps.",
-        s1_title: "Core (Android)",
-        s1_desc: "Java • Android SDK • Activities/Fragments • RecyclerView • ViewModel (MVVM) • Offline-first patterns • Clean dialog flows • Invoice PDF export/print UX",
-        s2_title: "Data & Backend",
-        s2_desc: "Firebase Realtime Database / Firestore • Structured nodes (purchaseItems, salesItems) • SQLite schema design • MySQL backend planning • Notification logs (SMS/Email APIs)",
-        s3_title: "Product Thinking",
-        s3_desc: "Future-proof architecture • Scalable data models • Role-based planning • Real workflow mapping (POS checkout, school gate attendance) • Maintainable code",
-        s4_title: "Hardware / IoT (Growing)",
-        s4_desc: "ESP32 basics • OLED integration • RFID/NFC concepts • PoE deployment idea • PCB planning mindset",
-
-        about_title: "About Me",
-        about_sub: "I plan carefully, build cleanly, and ship features that work in the real world.",
-        a1_title: "How I work",
-        a1_desc: "I start by understanding the workflow, then design the data structure, then finalize UI flow, and finally implement. The goal: fewer bugs, clear code, and easy future updates.",
-        a2_title: "What I love building",
-        a2_desc: "Apps that genuinely help people — POS, inventory, school automation, attendance + notifications. My long-term vision is to build real-world products combining apps + IoT devices.",
-
-        c_title: "Contact",
-        c_sub: "Let’s talk — I reply quickly and start with a clear plan.",
-        c_head: "Let’s build something real.",
-        c_desc: "If you have a project or job opportunity, send a message. I respond quickly and start with a clear plan.",
-        c_tip_b: "Tip:",
-        c_tip: "Use this email subject: “Android Developer — Project Inquiry”",
-
-        qi_title: "Quick Info",
-        qi_name_b: "Name:",
-        qi_role_b: "Role:",
-        qi_focus_b: "Focus:",
-        qi_stack_b: "Stack:",
-        qi_loc_b: "Location:",
-        qi_phone_b: "Phone:",
-        qi_email_b: "Email:",
-
-        copy_template: "Copy client message template",
-        foot_top: "Back to top ↑",
-        foot_contact: "Contact"
-      },
-
-      bn: {
-        nav_projects: "Projects",
-        nav_skills: "Skills",
-        nav_about: "About",
-        nav_contact: "Contact",
-        nav_hire: "Hire Me",
-
-        hero_badge: "Android (Java) Developer • Firebase / SQLite • POS / School Systems",
-        hero_title: `আমি বানাই <span class="grad">ফাস্ট, রিলায়েবল</span> Android অ্যাপ — যেগুলো বাস্তবে কাজে লাগে।`,
-        hero_sub: `আমি <b>Java</b> দিয়ে Android অ্যাপ ডেভেলপ করি — POS & Inventory, School Management, NFC/QR Attendance,
-                  Firebase (Realtime/Firestore), SQLite offline-first architecture, clean UI/UX, এবং maintainable codebase।
-                  আমার ফোকাস: <b>production-ready</b> ফিচার + <b>future-proof</b> data structure।`,
-        hero_cta1: "কাজের প্রস্তাব দিন",
-        hero_cta2: "প্রজেক্ট দেখুন",
-        hero_copy_email: "ইমেইল কপি",
-
-        chip_pos: "POS / Inventory",
-        chip_school: "School System",
-        chip_nfc: "NFC / QR",
-        chip_scale: "Scalable Structure",
-
-        snap_title: "Developer Snapshot",
-        snap_sub: "যা আমি ডেলিভার করতে পারি",
-        snap_avail: "Available",
-        snap_java: "Android Native",
-        snap_fb: "Realtime / Firestore",
-        snap_sqlite: "Offline-first",
-        snap_ui: "Clean & Friendly",
-        li1_title: "POS / Inventory System",
-        li1_sub: "Cart, checkout, stock update, sales report",
-        li2_title: "School Management + Attendance",
-        li2_sub: "NFC/QR, database sync, notification flow",
-        li3_title: "Invoice PDF + Print/Download UX",
-        li3_sub: "Clean invoice layout & stable export",
-        snap_contact: "Contact",
-
-        proj_title: "Selected Projects",
-        proj_sub: "পোর্টফোলিওর মূল কাজ হলো ইমপ্যাক্ট দেখানো—এখানে সেগুলো সেইভাবেই সাজানো।",
-        proj_cta: "Project Inquiry →",
-        p1_title: "GharerElectro POS (Android • Java)",
-        p1_pill: "Offline + Firebase Sync",
-        p1_desc: "Billing, cart, stock update, sales history, purchase history এবং invoice PDF/print flow সহ একটি production-grade POS।",
-        p2_title: "School Management System (Architecture & Planning)",
-        p2_pill: "Scalable Structure",
-        p2_desc: "Student/Teacher/Staff management, attendance automation, fee & transactions, exam & grading, parent notifications (SMS/Email), এবং audit-friendly logs — scale করার মতো করে পরিকল্পিত।",
-        p3_title: "NFC / QR Attendance Device Concept",
-        p3_pill: "Product + PoE Idea",
-        p3_desc: "Gate/point-wise attendance: NFC + QR, buzzer/LED feedback, এবং ethernet/PoE connectivity দিয়ে scalable deployment।",
-        p4_title: "Bangla Quiz App (Engagement Roadmap)",
-        p4_pill: "Gamification",
-        p4_desc: "General knowledge + Bengali culture focused quiz app—daily challenge, ranking, rewards, motivational quotes এবং push notification roadmap।",
-
-        skills_title: "Skills & Tools",
-        skills_sub: "বাস্তব প্রজেক্টে কাজ লাগে—এমন practical skill set।",
-        s1_title: "Core (Android)",
-        s1_desc: "Java • Android SDK • Activities/Fragments • RecyclerView • ViewModel (MVVM) • Offline-first patterns • Clean dialog flows • Invoice PDF export/print UX",
-        s2_title: "Data & Backend",
-        s2_desc: "Firebase Realtime Database / Firestore • Structured nodes (purchaseItems, salesItems) • SQLite schema design • MySQL backend planning • Notification logs (SMS/Email APIs)",
-        s3_title: "Product Thinking",
-        s3_desc: "Future-proof architecture • Scalable data models • Role-based planning • Real workflow mapping • Maintainable code",
-        s4_title: "Hardware / IoT (Growing)",
-        s4_desc: "ESP32 basics • OLED integration • RFID/NFC concepts • PoE deployment idea • PCB planning mindset",
-
-        about_title: "About Me",
-        about_sub: "আমি আগে প্ল্যান করি, তারপর ক্লিনভাবে বিল্ড করি—এবং real-world এ কাজ করে এমন ফিচার ডেলিভার করি।",
-        a1_title: "আমি কীভাবে কাজ করি",
-        a1_desc: "আমি আগে workflow বুঝি, তারপর data structure, তারপর UI flow, তারপর implementation। লক্ষ্য: কম bug, পরিষ্কার code, এবং ভবিষ্যতে সহজে update।",
-        a2_title: "আমি কী বানাতে ভালোবাসি",
-        a2_desc: "POS, inventory, school automation, attendance + notifications—যেগুলো মানুষের কাজ সত্যি সহজ করে। লং টার্ম ভিশন: app + IoT মিলিয়ে real product।",
-
-        c_title: "Contact",
-        c_sub: "মেসেজ দিন—আমি দ্রুত reply করি এবং পরিষ্কার plan দিয়ে শুরু করি।",
-        c_head: "চলুন, বাস্তবে কাজে লাগে এমন কিছু বানাই।",
-        c_desc: "Project বা job opportunity থাকলে একটা মেসেজ দিন। আমি দ্রুত reply করি এবং পরিষ্কার plan দিয়ে কাজ শুরু করি।",
-        c_tip_b: "Tip:",
-        c_tip: "Email subject এ লিখুন: “Android Developer — Project Inquiry”",
-
-        qi_title: "Quick Info",
-        qi_name_b: "নাম:",
-        qi_role_b: "রোল:",
-        qi_focus_b: "ফোকাস:",
-        qi_stack_b: "স্ট্যাক:",
-        qi_loc_b: "লোকেশন:",
-        qi_phone_b: "ফোন:",
-        qi_email_b: "ইমেইল:",
-
-        copy_template: "ক্লায়েন্ট মেসেজ টেমপ্লেট কপি",
-        foot_top: "উপরে যান ↑",
-        foot_contact: "Contact"
-      }
-    };
-
-    function setLang(lang){
-      // update <html lang>
-      document.documentElement.lang = (lang === "bn") ? "bn" : "en";
-
-      // update active button
-      document.getElementById("btnEn").classList.toggle("active", lang === "en");
-      document.getElementById("btnBn").classList.toggle("active", lang === "bn");
-
-      // update text nodes
-      document.querySelectorAll("[data-i18n]").forEach(el => {
-        const key = el.getAttribute("data-i18n");
-        const val = I18N[lang][key];
-        if(typeof val === "string"){
-          // allow markup in some strings (hero_title, hero_sub)
-          el.innerHTML = val;
-        }
-      });
-
-      showToast(lang === "bn" ? "✅ বাংলা মোড অন" : "✅ English mode on");
-    }
-
-    // Default English (Option A)
-    setLang("en");
-
-    document.getElementById("btnEn").addEventListener("click", () => setLang("en"));
-    document.getElementById("btnBn").addEventListener("click", () => setLang("bn"));
   </script>
 </body>
 </html>
